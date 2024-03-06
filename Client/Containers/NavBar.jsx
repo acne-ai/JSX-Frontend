@@ -10,13 +10,13 @@ const NavBar = () => {
 
 
   return (
-    <div className="rounded-2xl navbar bg-secondary px-4">
+    <div className="backdrop-blur-sm bg-gradient-to-r from-violet-500 to-fuchsia-500 rounded-2xl navbar px-4">
       <div className="navbar-start">
-        <a className="btn btn-ghost text-xl ">ACNE-AI</a>
+        <a className="btn btn-ghost text-2xl ">ACNE-AI</a>
       </div>
 
       {/* moving text for news */}
-      <div className="navbar-center animate-infinite-scroll">Moving Words.</div>
+      {/* <div className="navbar-center animate-infinite-scroll">Moving Words.</div> */}
 
       <div className="navbar-end">
         <div className="flex justify-center space-x-4">

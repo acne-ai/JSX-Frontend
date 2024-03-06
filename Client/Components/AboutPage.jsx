@@ -32,8 +32,8 @@ const AboutPage =()=>{
               <img src="../assets/image/kunsh.png" />
             </div>
             <p className='mt-4'>Kunsh Singh</p>
-            <div className=""><a href="https://github.com/SoorenGhodsi" target='_blank' className=""><i className="fa-brands p-1 bg-black fa-github text-white fa-1xl rounded"></i> </a>
-            <a href="https://www.linkedin.com/in/sooren-ghodsi/" target='_blank' className=""><i className="fa-brands bg-blue-500 text-white fa-linkedin-in p-1 rounded"></i></a></div>
+            <div className=""><a href="https://github.com/kunshksingh" target='_blank' className=""><i className="fa-brands p-1 bg-black fa-github text-white fa-1xl rounded"></i> </a>
+            <a href="https://www.linkedin.com/in/kunsh-singh/" target='_blank' className=""><i className="fa-brands bg-blue-500 text-white fa-linkedin-in p-1 rounded"></i></a></div>
           </div>
 
           <div className="flex flex-col text-center items-center text-xl font-bold tracking-wider avatar">
@@ -41,8 +41,8 @@ const AboutPage =()=>{
               <img src="../assets/image/sooren.png" />
             </div>
             <p className='mt-4'>Sooren Ghodsi</p>
-            <div className=""><a href="https://github.com/kunshksingh" target='_blank' className=""><i className="fa-brands p-1 bg-black text-white fa-github fa-1xl rounded "></i> </a>
-            <a href="https://www.linkedin.com/in/kunsh-singh/" target='_blank' className=""><i className="fa-brands bg-blue-500 text-white fa-linkedin-in p-1 rounded"></i></a></div>
+            <div className=""><a href="https://github.com/SoorenGhodsi" target='_blank' className=""><i className="fa-brands p-1 bg-black text-white fa-github fa-1xl rounded "></i> </a>
+            <a href="https://www.linkedin.com/in/sooren-ghodsi/" target='_blank' className=""><i className="fa-brands bg-blue-500 text-white fa-linkedin-in p-1 rounded"></i></a></div>
           </div>
           
         </div>
