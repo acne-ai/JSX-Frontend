@@ -16,7 +16,7 @@ const AboutPage =()=>{
           <div className="flex justify-center w-full mt-12 gap-24">
 
           <div className="divider">Default</div>
-
+            {/* <div className=""></div> */}
               {/* CARLOS PROFILE AND BUTTONS DIV*/}
             <div className="flex flex-col text-center items-center text-xl font-bold tracking-wider avatar">
               <div className="w-36 bg-zinc-100 mask mask-squircle">
