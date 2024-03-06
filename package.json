@@ -1,7 +1,7 @@
 {
-	"name": "hearttoheart",
+	"name": "acne-ai",
 	"version": "1.0.0",
-	"description": "Heart Visualization Tool",
+	"description": "Acne AI",
 	"main": "index.jsx",
 	"scripts": {
 		"start": "node server/server.js",
