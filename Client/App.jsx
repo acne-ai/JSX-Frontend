@@ -1,6 +1,6 @@
 import React from 'react';
 import HomeContainer from './Components/HomeContainer.jsx';
-import NavBar from './Containers/Navbar.jsx';
+import NavBar from './Containers/NavBar.jsx';
 import { Routes, Route } from 'react-router-dom';
 import Tool from './Components/Tool.jsx';
 import AboutPage from './Components/AboutPage.jsx'; // Ensure the extension is correct
