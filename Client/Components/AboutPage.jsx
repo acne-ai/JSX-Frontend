@@ -9,10 +9,9 @@ const AboutPage =()=>{
       <div class="lg:pl-[18rem]">
       <div className="flex flex-col justify-center max-w-3xl mx-auto pt-10 xl:max-w-none xl:ml-0 xl:mr-[14rem] xl:pr-16">
 
-        <h1 className="">Meet the Team behind the scenes!</h1>
+        <h1 className="text-center text-bold text-5xl">Meet the Team behind the scenes!</h1>
 
-        <div className="flex-col w-screen h-1/2 bg-blue py-10">
-          <h1 className="text-4xl font-black text-center">Our Team</h1>
+        <div className="flex flex-col w-screen h-1/2 bg-blue py-10">
           <div className="flex justify-center w-full mt-12 gap-24">
 
           <div className="divider">Default</div>

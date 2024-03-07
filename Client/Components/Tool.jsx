@@ -2,11 +2,14 @@ import React, { useState } from "react";
 import axios from "axios";
 
 const Tool = () => {
+
+  const [showDisclaimer, setShowDisclaimer] = useState(true);
+
   const [imagePreviewUrl, setImagePreviewUrl] = useState("");
   const [selectedFile, setSelectedFile] = useState(null);
   const [selectedFileName, setSelectedFileName] = useState("");
   // use state for classification
-  const [classification, setClassification] =useState("");
+  const [classification, setClassification] = useState("");
 
   // states for prompt answers -- init to empty string
   const [q1, setq1] = useState("");
@@ -14,7 +17,7 @@ const Tool = () => {
   const [q3, setq3] = useState([]);
   const [q4, setq4] = useState([]);
   const [q5, setq5] = useState([]);
-  
+
   const [resultImagePath, setResultImagePath] = useState("");
 
   const [loadingStatus, setLoadingStatus] = useState(false);
@@ -23,7 +26,11 @@ const Tool = () => {
   const [skincareComponent, setSkincareComponent] = useState(null);
   const [causesComponent, setCausesComponent] = useState(null);
 
-  // Image preview handler 
+  const handleDisclaimerAccept = () => {
+    setShowDisclaimer(false); // Hide the disclaimer when 'I Understand' is clicked
+  };
+
+  // Image preview handler
   const handleImageChange = (event) => {
     const file = event.target.files[0];
     if (file) {
@@ -40,29 +47,32 @@ const Tool = () => {
     }
   };
 
-
   //  ------------------------ FORM SUBMIT - DATA RETIEVAL FUNC ------------------------
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     setLoadingStatus(true);
 
     if (!selectedFile) {
-      console.error('No file selected');
+      console.error("No file selected");
       setLoadingStatus(false);
       return;
     }
 
     const formData = new FormData();
-    formData.append('image', selectedFile);
+    formData.append("image", selectedFile);
 
     try {
-      const response = await axios.post('https://acneai.pythonanywhere.com/api/upload', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      });
+      const response = await axios.post(
+        "https://acneai.pythonanywhere.com/api/upload",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
 
-      console.log('Upload successful:', response.data);
+      console.log("Upload successful:", response.data);
 
       setClassification(response.data.classification);
 
@@ -71,24 +81,40 @@ const Tool = () => {
       setq3(response.data.q3.answer);
       setq4(response.data.q4.answer);
       setq5(response.data.q5.answer);
-      
 
-      setTreatmentsComponent(<div className="card bg-black text-white p-4 flex flex-col space-y-8">{response.data.q2.answer.map(item => <p key={item}>{item}</p>)}</div>);
-      setSkincareComponent(<div className="card bg-black text-white p-4 flex flex-col space-y-8">{response.data.q3.answer.map(item => <p key={item}>{item}</p>)}</div>);
-      setCausesComponent(<div className="card bg-black text-white p-4 flex flex-col space-y-8">{response.data.q4.answer.concat(response.data.q5.answer).map(item => <p key={item}>{item}</p>)}</div>);
+      setTreatmentsComponent(
+        <div className="card bg-black text-white p-4 flex flex-col space-y-8">
+          {response.data.q2.answer.map((item) => (
+            <p key={item}>{item}</p>
+          ))}
+        </div>
+      );
+      setSkincareComponent(
+        <div className="card bg-black text-white p-4 flex flex-col space-y-8">
+          {response.data.q3.answer.map((item) => (
+            <p key={item}>{item}</p>
+          ))}
+        </div>
+      );
+      setCausesComponent(
+        <div className="card bg-black text-white p-4 flex flex-col space-y-8">
+          {response.data.q4.answer
+            .concat(response.data.q5.answer)
+            .map((item) => (
+              <p key={item}>{item}</p>
+            ))}
+        </div>
+      );
 
       setResultImagePath(response.data.result_path);
       setLoadingStatus(false);
-      
     } catch (error) {
-      console.error('Error uploading file:', error);
+      console.error("Error uploading file:", error);
     }
   };
-//  ------------------------ FORM SUBMIT handler end ------------------------
+  //  ------------------------ FORM SUBMIT handler end ------------------------
 
-
-
-// IMAGE REMOVAL FUNC
+  // IMAGE REMOVAL FUNC
   const handleRemoveImage = () => {
     setImagePreviewUrl("");
     setSelectedFile(null);
@@ -97,129 +123,193 @@ const Tool = () => {
 
   return (
     <>
-    {/* TOOL PAGE MAIN BODY DIV */}
+      {/* TOOL PAGE MAIN BODY DIV */}
       <div class="lg:pl-[18rem]">
-        <div className="flex flex-col justify-center max-w-3xl mx-auto pt-10 xl:max-w-none xl:ml-0 xl:mr-[14rem] xl:pr-16">
-      
-        
+        <div className="flex flex-col justify-center max-w-3xl mx-auto mb-8 pt-4 xl:max-w-none xl:ml-0 xl:mr-[14rem] xl:pr-16">
+          
+          {/* ----- Disclaimer DIV ------ */}
+          {showDisclaimer && ( // Conditionally render the disclaimer based on showDisclaimer state
+            <div className="card w-auto mb-8 mt-4 bg-amber-400 text-black">
+              <div className="card-body items-center text-center">
+                <h2 className="card-title">Disclaimer</h2>
+                <p className="text-bold">
+                  All responses are generated by AI.
+                </p>
+                <p className="text-bold">
+                  We are NOT Doctors and this is NOT real medical advice. 
+                </p>
+                <p className="text-bold">
+                  If you have concerns about your acne please speak with your Doctor.
+                </p>
+                <button className="btn btn-wide" onClick={handleDisclaimerAccept}>
+                  I Understand.
+                </button>
+              </div>
+            </div>
+          )}
 
-        
-
-        {/* TOOL MAIN BODY DIV START**********************/}
+          {/* TOOL MAIN BODY DIV START**********************/}
           <div className="flex flex-row w-auto space-x-4">
-
-
-            {/* IMAGE PREVIEW UPLOAD AND PROMPTS INFO DIV */}
+            {/* IMAGE PREVIEW UPLOAD DIV */}
             <div className="flex flex-col w-1/2">
-
               {/* FORM DIV */}
-              <div className="mt-11 p-8 flex-col w-1/2 justify-center items-center bg-base-100">
-                <form onSubmit={handleFormSubmit} className="w-full md:w-1/2">
+              <div className="flex-col w-auto justify-center items-center bg-base-100">
+                <form onSubmit={handleFormSubmit} className="w-auto">
                   <div className="relative grid grid-cols-1 md:grid-cols-3 border border-gray-300 bg-gray-100 rounded-lg">
                     <div className="rounded-l-lg p-4 bg-gray-200 flex flex-col justify-center items-center border-0 border-r border-gray-300 ">
-                      <label className="cursor-pointer hover:opacity-80 inline-flex items-center shadow-md my-2 px-2 py-2 bg-gray-900 text-gray-50 border border-transparent rounded-md font-semibold text-xs uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150">
+                      <label className="cursor-pointer hover:opacity-80 inline-flex items-center text-center shadow-md my-2 px-2 py-2 bg-gray-900 text-gray-50 border border-transparent rounded-md font-semibold text-xs uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150">
                         Select image
-                        <input 
-                          id="faceImage" 
-                          className="text-sm cursor-pointer w-36 hidden" 
-                          type="file" 
-                          onChange={handleImageChange} 
+                        <input
+                          id="faceImage"
+                          className="text-sm cursor-pointer w-36 hidden"
+                          type="file"
+                          onChange={handleImageChange}
                           accept=".jpeg, .jpg, .png, .webp, .heic" // Restrict file types
                         />
                       </label>
-                      <button 
+                      <button
                         type="button"
-                        className='inline-flex items-center shadow-md my-2 px-2 py-2 bg-gray-900 text-gray-50 border border-transparent rounded-md font-semibold text-xs uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150'
+                        className="inline-flex items-center shadow-md my-2 px-2 py-2 bg-gray-900 text-gray-50 border border-transparent rounded-md font-semibold text-xs uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150"
                         onClick={handleRemoveImage} // Set the click handler to remove the image
                       >
                         Remove image
                       </button>
                     </div>
-                    <div className="relative order-first md:order-last h-28 md:h-auto flex justify-center items-center border border-dashed border-gray-400 col-span-2 m-2 rounded-lg bg-no-repeat bg-center bg-origin-padding bg-cover">
+                    <div className="relative order-first md:order-last w-auto h-28 md:h-auto flex justify-center items-center border border-dashed border-gray-400 col-span-2 m-2 rounded-lg bg-no-repeat bg-center bg-origin-padding bg-cover">
                       {imagePreviewUrl ? (
-                        <img src={imagePreviewUrl} alt="Preview" className="w-auto max-h-full rounded-lg" />
+                        <img
+                          src={imagePreviewUrl}
+                          alt="Preview"
+                          className="w-auto max-h-full rounded-lg"
+                        />
                       ) : (
-                        <span className="text-gray-400 opacity-75">No image selected</span>
+                        <span className="text-gray-400 opacity-75">
+                          No image selected
+                        </span>
                       )}
                     </div>
                   </div>
 
-
                   {/* UPLOAD IMAGEUPLOADEDPATH/LOADING ---------------------- */}
                   <div className="flex flex-row">
                     <div className="flex flex-col">
-                      <button 
-                        type="submit" 
-                        className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                          Upload
+                      <button
+                        type="submit"
+                        className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                      >
+                        Upload
                       </button>
                       {selectedFileName && (
-                      <div className="ml-4 text-gray-500">
-                        File: {selectedFileName}
-                      </div>)}
+                        <div className="text-gray-500">
+                          File: {selectedFileName}
+                        </div>
+                      )}
                     </div>
                     {loadingStatus && (
-                      <div className="flex flex-row ml-4 text-white">
-                        Processing your upload, Please wait.
-                        <span className="loading loading-spinner loading-md">  </span>
+                      <div className="flex flex-row text-white align-middle items-center text-sm ml-2">
+                        Processing your upload. Please wait.
+                        <span className="loading loading-spinner loading-md ml-2"></span>
                       </div>
                     )}
-                    
                   </div>
                 </form>
               </div>
 
-          {/* OUTPUT IMAGE START**********************/}
-          <div className="">
-            {resultImagePath && (
-            <div className="flex flex-col items-center justify-center mt-4">
-              <img src={resultImagePath} alt="Result" className="w-auto max-h-64 rounded-lg" />
-            </div>)}
-          </div>
-          
-        
-        {/* Output Image END ------------------------------------*/}
-
-              {/* INSTRUCTIONS DIV START**********************/}
-              <div className="flex flex-col">
-                <div className="collapse bg-base-200">
-                  <input type="checkbox" className="peer" /> 
-                  <div className="collapse-title bg-primary text-primary-content peer-checked:bg-secondary peer-checked:text-secondary-content">
-                    Need Help? Click here for instructions and More information
+              {/* OUTPUT IMAGE START**********************/}
+              <div className="">
+                {resultImagePath && (
+                  <div className="flex flex-col items-center justify-center mt-4">
+                    <img
+                      src={resultImagePath}
+                      alt="Result"
+                      className="w-auto max-h-64 rounded-lg"
+                    />
                   </div>
-                  <div className="collapse-content bg-primary text-primary-content peer-checked:bg-secondary peer-checked:text-secondary-content"> 
-                    <p>Step 1: Select image and choose image of a frontal face profile</p>
-                    <p>Step 2: Click on Upload once you are happy with your selected image.</p>
-                    <p>Step 3: Wait for Results!</p>
-                  </div>
-                </div>
+                )}
               </div>
-            {/* INSTRUCTIONS DIV END ------------------------------------*/}
+
+              {/* Output Image END ------------------------------------*/}
             </div>
-            
+
             {/* RESPONSE BOX */}
-            <div className="card glass w-1/2 p-4 flex flex-col"> 
-              
-                {/* classification card */}
-                <div className="card bg-black text-white p-4 flex flex-col space-y-8"> 
-                  <h3>Classification: {classification}</h3>
-                  <p>{q1}</p>
+            <div className="card bg-gradient-to-r from-purple-500 to-pink-500 w-1/2 p-4 flex flex-col shadow-xl min-h-[520]">
+              {classification ? (
+                <div className="flex flex-col space-y-4">
+                  <div className="card bg-black text-white p-4 flex flex-col space-y-8">
+                    <h3 className="text-xl text-center">
+                      Classification: {classification}
+                    </h3>
+                    <p>{q1}</p>
+                  </div>
+
+                  <div className="collapse bg-black">
+                    <input type="checkbox" className="peer" />
+                    <div className="collapse-title bg-black text-white peer-checked:bg-Fuchsia-900 peer-checked:text-secondary-content">
+                      Treatments
+                    </div>
+                    <div className="collapse-content bg-primary text-white peer-checked:bg-secondary peer-checked:text-secondary-content">
+                      {treatmentsComponent}
+                    </div>
+                  </div>
+
+                  <div className="collapse bg-black">
+                    <input type="checkbox" className="peer" />
+                    <div className="collapse-title bg-black text-white peer-checked:bg-Fuchsia-900 peer-checked:text-secondary-content">
+                      Tips for your Skincare
+                    </div>
+                    <div className="collapse-content bg-primary text-white peer-checked:bg-secondary peer-checked:text-secondary-content">
+                      {skincareComponent}
+                    </div>
+                  </div>
+
+                  <div className="collapse bg-black">
+                    <input type="checkbox" className="peer" />
+                    <div className="collapse-title bg-black text-white peer-checked:bg-Fuchsia-900 peer-checked:text-secondary-content">
+                      Possible Causes
+                    </div>
+                    <div className="collapse-content bg-primary text-white peer-checked:bg-secondary peer-checked:text-secondary-content">
+                      {causesComponent}
+                    </div>
+                  </div>
                 </div>
-              
-                {/* Treatment card */}
-                {treatmentsComponent}
+              ) : (
 
-                {/* Skincare tips card */}
-                {skincareComponent}
-
-                {/* Possible Causes card */}
-                {causesComponent}
+                  <div className="flex flex-col relative">
+                    <div className="h-1/3 "></div>
+                    <div className="bg-transparent text-black p-4 h-1/3 ">
+                      <h1 className="text-center align-middle text-4xl text-bold">
+                        Your scan results will appear here.
+                      </h1>
+                    </div>
+                    <div className="h-1/3 "></div>
+                  </div>
+                  
                 
+              )}
             </div>
-
           </div>
           {/* UPLOAD AND OUTPUT DIVS DIV END----------------------------------------*/}
-      
+          {/* INSTRUCTIONS DIV START**********************/}
+          <div className="flex flex-col py-8">
+            <div className="collapse bg-base-200">
+              <input type="checkbox" className="peer" />
+              <div className="collapse-title bg-primary text-primary-content peer-checked:bg-secondary peer-checked:text-secondary-content text-center">
+                Need Help? Click here for instructions and More information!
+              </div>
+              <div className="collapse-content bg-primary text-primary-content peer-checked:bg-secondary peer-checked:text-secondary-content">
+                <p>
+                  Step 1: Select image and choose image of a frontal face
+                  profile
+                </p>
+                <p>
+                  Step 2: Click on Upload once you are happy with your selected
+                  image.
+                </p>
+                <p>Step 3: Wait for Results!</p>
+              </div>
+            </div>
+          </div>
+          {/* INSTRUCTIONS DIV END ------------------------------------*/}
         </div>
       </div>
     </>
@@ -302,7 +392,6 @@ sample RESPONSE
 
  */
 
-
 // func for conditional rendering
 
 // <div className="">
@@ -320,6 +409,3 @@ sample RESPONSE
 //                 //   </div>
 //                 //   )}
 //                 // </div>
-
-
-

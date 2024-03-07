@@ -23,10 +23,11 @@ const HomeContainer = () => {
               </p>
             </div>
           </div>
-          <div className="card w-1/2 bg-white text-wrap">image here</div>
+          <div className="homeimg w-1/2">
+          </div>
         </div>
 
-        <div className="divider">Default</div>
+        <div className="divider"></div>
 
         {/* MAIN CARD BODY (DIV 2) */}
         <div className="flex flex-row space-x-8 justify-center extra-padding">
@@ -149,14 +150,14 @@ const HomeContainer = () => {
           </div>
         </div>
 
-        <div className="divider">Default</div>
+        <div className="divider"></div>
 
         {/* GITHUB AND TOOL BUTTONM LINKS (DIV 3) */}
         <div className="flex space-x-8 justify-center extra-padding">
           {/* TOOL */}
           <div className="card w-1/2 bg-primary text-primary-content">
             <div className="card-body">
-              <h2 className="card-title text-center font-oxygen">Check out our AI tool!</h2>
+              <h2 className="card-title text-center">Check out our AI tool!</h2>
               <p>
                 ITest test. Test test. Test test. Test test. Test test. Test
                 test. Test test. Test test. Test test. Test test. Test test.
