@@ -17,13 +17,12 @@ const HomeContainer = () => {
             </span>
             <div className="text-2xl font-bold max-w-2/3">
               <p className="py-6 font-oxygen">
-                Provident cupiditate voluptatem et in. Quaerat fugiat ut
-                assumenda excepturi exercitationem quasi. In deleniti eaque aut
-                repudiandae et a id nisi.
+                Providing a solution to acne. The modern way.
               </p>
             </div>
           </div>
-          <div className="homeimg w-1/2">
+          <div class = "container w-1/2">
+            <div className="homeimg"></div>
           </div>
         </div>
 
@@ -63,7 +62,7 @@ const HomeContainer = () => {
                         </svg>
                       </div>
                       <div className="timeline-end timeline-box text-white">
-                        WORD1
+                        The model takes in an image of your acne and classifies it
                       </div>
                       <hr />
                     </li>
@@ -85,7 +84,7 @@ const HomeContainer = () => {
                         </svg>
                       </div>
                       <div className="timeline-end timeline-box text-white">
-                        WORD2
+                        We use generative AI in order to develop a better understanding of your acne
                       </div>
                       <hr />
                     </li>
@@ -107,7 +106,7 @@ const HomeContainer = () => {
                         </svg>
                       </div>
                       <div className="timeline-end timeline-box text-white">
-                        WORD3
+                        We use chain-of-thought reasoning to help prepare a treatment plan for you (for educational purposes only)
                       </div>
                       <hr />
                     </li>
@@ -129,7 +128,7 @@ const HomeContainer = () => {
                         </svg>
                       </div>
                       <div className="timeline-end timeline-box text-white">
-                        WORD4
+                        We serve all this data back in a more digestible format
                       </div>
                       <hr />
                     </li>
@@ -139,11 +138,14 @@ const HomeContainer = () => {
               {/* TEXT NEXT TO BREAKDOWN GRAPHIC */}
               <div className="flex-row w-2/3 p-8 text-wrap text-2xl bg-blend">
                 <h3 className="font-oxygen p-3">
-                Blandit libero volutpat sed cras ornare arcu dui vivamus. Commodo nulla facilisi nullam vehicula ipsum. Eu non diam phasellus vestibulum lorem sed. Dui nunc mattis enim ut tellus elementum sagittis vitae. Ac placerat vestibulum lectus mauris ultrices eros in. Aliquam faucibus purus in massa. Sodales ut eu sem integer vitae justo eget magna fermentum. Mauris pharetra et ultrices neque ornare aenean euismod elementum nisi. Urna porttitor rhoncus dolor purus non enim praesent. Ligula ullamcorper malesuada proin libero nunc consequat. 
+                Pores are the small openings in your skin that release oil and sweat. They’re also connected to your hair follicles. Pores can become clogged with excess oil, dead skin cells, and bacteria. When this happens, you may develop a pimple or “zit.” Or is it a “zit”? What is causing it? Let us try to help you figure it out.
                 </h3>
                 <br />
                 <h3 className="font-oxygen p-3">
-                Orci sagittis eu volutpat odio facilisis mauris sit. Massa vitae tortor condimentum lacinia quis vel. Nullam non nisi est sit amet facilisis magna.
+                Our DinoV2 model classifies your acne and then provides a treatment plan using generative AI. This is for educational purposes only and should not be used as a substitute for professional medical advice, but we hope to provide a better understanding of your acne, and help you make more informed decisions about your skin.
+                </h3>
+                <h3 className="font-oxygen p-3">
+                We're working on expanding our model to include more skin conditions, and to provide more accurate and helpful information with semantic segmentation — we've been able to use DinoV2 and linear segmentation with low accuracy. Though, we've had some success with getting our model to understand the difference between different types of acne, and we're excited to see where we can take it next.
                 </h3>
               </div>
             </div>
@@ -159,12 +161,7 @@ const HomeContainer = () => {
             <div className="card-body">
               <h2 className="card-title text-center">Check out our AI tool!</h2>
               <p>
-                ITest test. Test test. Test test. Test test. Test test. Test
-                test. Test test. Test test. Test test. Test test. Test test.
-                Test test. Test test. Test test. Test test. Test test. Test
-                test. Test test. Test test. Test test. Test test. Test test.
-                Test test. Test test. Test test. Test test. Test test. Test
-                test.{" "}
+                {" "}
               </p>
               <div className="card-actions justify-end">
                 <button className="btn" onClick={() => navigate("/tool")}>
@@ -176,14 +173,9 @@ const HomeContainer = () => {
           {/* GITHUB */}
           <div className="card w-1/2 bg-primary text-primary-content">
             <div className="card-body">
-              <h2 className="card-title text-center">Check out our Github</h2>
+              <h2 className="card-title text-center">Check out our code!</h2>
               <p className="font-oxygen">
-                Test test. Test test. Test test. Test test. Test test. Test
-                test. Test test. Test test. Test test. Test test. Test test.
-                Test test. Test test. Test test. Test test. Test test. Test
-                test. Test test. Test test. Test test. Test test. Test test.
-                Test test. Test test. Test test. Test test. Test test. Test
-                test.{" "}
+                See our project, our pitfalls, and what we're working on next!{" "}
               </p>
               <div className="card-actions justify-end">
                 <a
@@ -191,7 +183,7 @@ const HomeContainer = () => {
                   target="_blank"
                   className="bg-slate-800 rounded-xl hover:bg-zinc-500 text-white btn p-2"
                 >
-                  CLICK HERE<i className="fa-brands fa-github fa-2xl"></i>{" "}
+                  Github Link<i className="fa-brands fa-github fa-2xl"></i>{" "}
                 </a>
               </div>
             </div>
