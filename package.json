@@ -30,7 +30,7 @@
 	},
 	"author": "",
 	"license": "",
-	"homepage": "",
+	"homepage": "./",
 	"dependencies": {
 		"@material-tailwind/react": "^2.1.9",
 		"axios": "^1.6.7",

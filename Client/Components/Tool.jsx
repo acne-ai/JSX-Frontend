@@ -242,7 +242,7 @@ const Tool = () => {
                     <p>{q1}</p>
                   </div>
 
-                  <div className="collapse bg-black">
+                  <div className="collapse collapse-arrow bg-black">
                     <input type="checkbox" className="peer" />
                     <div className="collapse-title bg-black text-white peer-checked:bg-Fuchsia-900 peer-checked:text-white">
                       Treatments
@@ -252,7 +252,7 @@ const Tool = () => {
                     </div>
                   </div>
 
-                  <div className="collapse bg-black">
+                  <div className="collapse collapse-arrow bg-black">
                     <input type="checkbox" className="peer" />
                     <div className="collapse-title bg-black text-white peer-checked:bg-Fuchsia-900 peer-checked:text-white">
                       Tips for your Skincare
@@ -262,7 +262,7 @@ const Tool = () => {
                     </div>
                   </div>
 
-                  <div className="collapse bg-black">
+                  <div className="collapse collapse-arrow bg-black">
                     <input type="checkbox" className="peer" />
                     <div className="collapse-title bg-black text-white peer-checked:bg-Fuchsia-900 peer-checked:text-white">
                       Possible Causes
@@ -291,7 +291,7 @@ const Tool = () => {
           {/* UPLOAD AND OUTPUT DIVS DIV END----------------------------------------*/}
           {/* INSTRUCTIONS DIV START**********************/}
           <div className="flex flex-col py-8">
-            <div className="collapse bg-base-200">
+            <div className="collapse collapse-arrow bg-base-200">
               <input type="checkbox" className="peer" />
               <div className="collapse-title bg-primary text-primary-content peer-checked:bg-secondary peer-checked:text-secondary-content text-center">
                 Need Help? Click here for instructions and More information!
@@ -306,6 +306,7 @@ const Tool = () => {
                   image.
                 </p>
                 <p>Step 3: Wait for Results!</p>
+                <p className="text-center">Note: if you are expecting long loading times please refresh or re upload the scan.</p>
               </div>
             </div>
           </div>
