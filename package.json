@@ -4,8 +4,9 @@
 	"description": "Acne AI",
 	"main": "index.jsx",
 	"scripts": {
-		"start": "node server/server.js",
+		"start": "node server/server.js --config ./webpack.config.js",
 		"build": "webpack",
+		"postinstall": "npm run build",
 		"dev": "concurrently \"cross-env NODE_ENV=development webpack serve --open --hot --progress --color\" \"nodemon ./server/server.js\"",
 		"watch": "npx tailwindcss -i ./Client/Styles/input.css -o ./Client/Styles/output.css --watch"
 	},
