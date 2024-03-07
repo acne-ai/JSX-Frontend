@@ -63,7 +63,7 @@ const Tool = () => {
 
     try {
       const response = await axios.post(
-        "http://acneai.pythonanywhere.com/api/upload",
+        "https://acneai.pythonanywhere.com/api/upload",
         formData,
         {
           headers: {
