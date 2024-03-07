@@ -136,7 +136,7 @@ const HomeContainer = () => {
                 </div>
               </div>
               {/* TEXT NEXT TO BREAKDOWN GRAPHIC */}
-              <div className="flex-row w-2/3 p-8 text-wrap text-2xl bg-blend p-4">
+              <div className="flex-row w-2/3 p-8 text-wrap text-2xl bg-blend">
                 <h3 className="font-oxygen p-3">
                 Blandit libero volutpat sed cras ornare arcu dui vivamus. Commodo nulla facilisi nullam vehicula ipsum. Eu non diam phasellus vestibulum lorem sed. Dui nunc mattis enim ut tellus elementum sagittis vitae. Ac placerat vestibulum lectus mauris ultrices eros in. Aliquam faucibus purus in massa. Sodales ut eu sem integer vitae justo eget magna fermentum. Mauris pharetra et ultrices neque ornare aenean euismod elementum nisi. Urna porttitor rhoncus dolor purus non enim praesent. Ligula ullamcorper malesuada proin libero nunc consequat. 
                 </h3>
