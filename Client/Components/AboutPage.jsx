@@ -1,4 +1,5 @@
 import React from "react";
+
 const AboutPage =()=>{
 
 
@@ -22,7 +23,7 @@ const AboutPage =()=>{
         {/* PROFILE */}
         <div className="flex flex-col text-center items-center text-xl font-bold tracking-wider avatar w-1/2">
           <div className="w-48 bg-zinc-100 mask mask-squircle">
-            <img src="../assets/image/carlos.png" />
+            <img src="https://media.licdn.com/dms/image/D4E03AQEg4RdU7-tlXw/profile-displayphoto-shrink_800_800/0/1688232925158?e=1715212800&v=beta&t=J4YWDN8Dn1wZwkn6JTEAsZj144VGRMYuV4OoY7QLsQ4" />
           </div>
           <p className='mt-4 mb-4'>Carlos Revilla</p>
           <div className="flex justify-center items-center space-x-2"> {/* Added flex container with space-x-2 for spacing */}
@@ -62,7 +63,7 @@ const AboutPage =()=>{
               {/* PROFILE */}
               <div className="flex flex-col text-center items-center text-xl font-bold tracking-wider avatar w-1/2">
                 <div className="w-48 bg-zinc-100 mask mask-squircle">
-                  <img src="../assets/image/dhruv.png" />
+                  <img src="https://avatars.githubusercontent.com/u/47730411?v=4" />
                 </div>
                 <p className='mt-4 mb-4'>Dhruv Batra</p>
                 <div className="flex justify-center items-center space-x-2">
@@ -84,7 +85,7 @@ const AboutPage =()=>{
               {/* PROFILE */}
               <div className="flex flex-col text-center items-center text-xl font-bold tracking-wider avatar w-1/2">
                 <div className="w-48 bg-zinc-100 mask mask-squircle">
-                  <img src="../assets/image/kunsh.png" />
+                  <img src="https://media.licdn.com/dms/image/D4E03AQG2-6O515GJKg/profile-displayphoto-shrink_800_800/0/1696255506581?e=1715212800&v=beta&t=s01xps7A3BtmSLruWlDDp0g5ZvLBvrf2-L72hNlpUZ8" />
                 </div>
                 <p className='mt-4 mb-4'>Kunsh Singh</p>
                 <div className="flex justify-center items-center space-x-2">
@@ -119,7 +120,7 @@ const AboutPage =()=>{
               {/* PROFILE */}
               <div className="flex flex-col text-center items-center text-xl font-bold tracking-wider avatar w-1/2">
                 <div className="w-48 bg-slate-100 mask mask-squircle">
-                  <img src="../assets/image/sooren.png" />
+                  <img src="https://media.licdn.com/dms/image/D4E03AQGVqlPw7iYRAQ/profile-displayphoto-shrink_800_800/0/1709695788724?e=1715212800&v=beta&t=jxXcZmjGUfEo7ihuHmdUAYhB9muSYpottUovE6p6-yM" />
                 </div>
                 <p className='mt-4 mb-4'>Sooren Ghodsi</p>
                 <div className="flex justify-center items-center space-x-2">
