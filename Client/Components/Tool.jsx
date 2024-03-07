@@ -63,7 +63,7 @@ const Tool = () => {
 
     try {
       const response = await axios.post(
-        "https://acneai.pythonanywhere.com/api/upload",
+        "http://127.0.0.1:5000/api/upload",
         formData,
         {
           headers: {
@@ -216,7 +216,7 @@ const Tool = () => {
               </div>
 
               {/* OUTPUT IMAGE START**********************/}
-              <div className="">
+              {/* <div className="">
                 {resultImagePath && (
                   <div className="flex flex-col items-center justify-center mt-4">
                     <img
@@ -226,7 +226,7 @@ const Tool = () => {
                     />
                   </div>
                 )}
-              </div>
+              </div> */}
 
               {/* Output Image END ------------------------------------*/}
             </div>
@@ -244,30 +244,30 @@ const Tool = () => {
 
                   <div className="collapse bg-black">
                     <input type="checkbox" className="peer" />
-                    <div className="collapse-title bg-black text-white peer-checked:bg-Fuchsia-900 peer-checked:text-secondary-content">
+                    <div className="collapse-title bg-black text-white peer-checked:bg-Fuchsia-900 peer-checked:text-white">
                       Treatments
                     </div>
-                    <div className="collapse-content bg-primary text-white peer-checked:bg-secondary peer-checked:text-secondary-content">
+                    <div className="collapse-content bg-primary text-white peer-checked:bg-black peer-checked:text-white">
                       {treatmentsComponent}
                     </div>
                   </div>
 
                   <div className="collapse bg-black">
                     <input type="checkbox" className="peer" />
-                    <div className="collapse-title bg-black text-white peer-checked:bg-Fuchsia-900 peer-checked:text-secondary-content">
+                    <div className="collapse-title bg-black text-white peer-checked:bg-Fuchsia-900 peer-checked:text-white">
                       Tips for your Skincare
                     </div>
-                    <div className="collapse-content bg-primary text-white peer-checked:bg-secondary peer-checked:text-secondary-content">
+                    <div className="collapse-content bg-primary text-white peer-checked:bg-black peer-checked:text-white">
                       {skincareComponent}
                     </div>
                   </div>
 
                   <div className="collapse bg-black">
                     <input type="checkbox" className="peer" />
-                    <div className="collapse-title bg-black text-white peer-checked:bg-Fuchsia-900 peer-checked:text-secondary-content">
+                    <div className="collapse-title bg-black text-white peer-checked:bg-Fuchsia-900 peer-checked:text-white">
                       Possible Causes
                     </div>
-                    <div className="collapse-content bg-primary text-white peer-checked:bg-secondary peer-checked:text-secondary-content">
+                    <div className="collapse-content bg-primary text-white peer-checked:bg-black peer-checked:text-white">
                       {causesComponent}
                     </div>
                   </div>
