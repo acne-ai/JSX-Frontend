@@ -11,7 +11,7 @@ const App = () => {
   return (
     <>
     {/* Rendering the Navbar always */}
-      <div className='pt-2 pr-2 pl-2'>
+      <div className='pt-2 pr-6 pl-6 px-8 m-2 mx-4'>
         <NavBar/>
       </div>
       {/* Body of App componenet is what is changing depending on the path ('/':home '/about': aboutpage, '/tool': tool page) */}

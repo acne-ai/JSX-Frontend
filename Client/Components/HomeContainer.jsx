@@ -7,7 +7,7 @@ const HomeContainer = () => {
   // dev branch comment
   // class="lg:pl-[19.5rem]"
   return (
-    <div class="lg:pl-[18rem]">
+    <div className="lg:pl-[18rem] home-container extra-padding">
       <div className="flex flex-col justify-center max-w-3xl mx-auto pt-10 xl:max-w-none xl:ml-0 xl:mr-[14rem] xl:pr-16">
         {/* HERO - invisible div (DIV 1) */}
         <div className="flex flex-row min-h-full bg-base-100 p-8 space-x-8">
@@ -16,7 +16,7 @@ const HomeContainer = () => {
               Welcome to Acne-AI
             </span>
             <div className="text-2xl font-bold max-w-2/3">
-              <p className="py-6">
+              <p className="py-6 font-oxygen">
                 Provident cupiditate voluptatem et in. Quaerat fugiat ut
                 assumenda excepturi exercitationem quasi. In deleniti eaque aut
                 repudiandae et a id nisi.
@@ -29,19 +29,19 @@ const HomeContainer = () => {
         <div className="divider">Default</div>
 
         {/* MAIN CARD BODY (DIV 2) */}
-        <div className="flex flex-row space-x-8 justify-center">
+        <div className="flex flex-row space-x-8 justify-center extra-padding">
           <div className="card glass flex-col space-x-4 justify-center text-white m-4 shadow-md">
             {/* card title div */}
             <div className="flex items-center justify-center p-4">
-              <h1 className="text-5xl ml-6 font-semibold">Our Model</h1>
+              <h1 className="text-5xl ml-6 font-semibold mt-3 blend">Our Model</h1>
             </div>
 
             {/* breakdown and explanation div */}
-            <div className="flex flex-row pb-8 space-x-8">
+            <div className="flex flex-row pb-8 space-x-8 font-oxygen be-container">
               {/* breakdown graphic and breakdown title div */}
               <div className="flex-col w-1/3 p-11 text-center ">
                 {/* breakdown title */}
-                <h2 className="text-xl ml-6 font-semibold">Breakdown</h2>
+                <h2 className="text-xl ml-6 font-semibold ">Breakdown</h2>
                 {/* breakdown graphic */}
                 <div className="flex justify-items-center mt-4">
                   <ul className="timeline timeline-vertical">
@@ -136,12 +136,12 @@ const HomeContainer = () => {
                 </div>
               </div>
               {/* TEXT NEXT TO BREAKDOWN GRAPHIC */}
-              <div className="flex-row w-2/3 p-8 text-wrap text-2xl">
-                <h3 className="">
+              <div className="flex-row w-2/3 p-8 text-wrap text-2xl bg-blend p-4">
+                <h3 className="font-oxygen p-3">
                 Blandit libero volutpat sed cras ornare arcu dui vivamus. Commodo nulla facilisi nullam vehicula ipsum. Eu non diam phasellus vestibulum lorem sed. Dui nunc mattis enim ut tellus elementum sagittis vitae. Ac placerat vestibulum lectus mauris ultrices eros in. Aliquam faucibus purus in massa. Sodales ut eu sem integer vitae justo eget magna fermentum. Mauris pharetra et ultrices neque ornare aenean euismod elementum nisi. Urna porttitor rhoncus dolor purus non enim praesent. Ligula ullamcorper malesuada proin libero nunc consequat. 
                 </h3>
                 <br />
-                <h3 className="">
+                <h3 className="font-oxygen p-3">
                 Orci sagittis eu volutpat odio facilisis mauris sit. Massa vitae tortor condimentum lacinia quis vel. Nullam non nisi est sit amet facilisis magna.
                 </h3>
               </div>
@@ -152,11 +152,11 @@ const HomeContainer = () => {
         <div className="divider">Default</div>
 
         {/* GITHUB AND TOOL BUTTONM LINKS (DIV 3) */}
-        <div className="flex space-x-8 justify-center">
+        <div className="flex space-x-8 justify-center extra-padding">
           {/* TOOL */}
           <div className="card w-1/2 bg-primary text-primary-content">
             <div className="card-body">
-              <h2 className="card-title text-center">Check out our AI tool!</h2>
+              <h2 className="card-title text-center font-oxygen">Check out our AI tool!</h2>
               <p>
                 ITest test. Test test. Test test. Test test. Test test. Test
                 test. Test test. Test test. Test test. Test test. Test test.
@@ -176,7 +176,7 @@ const HomeContainer = () => {
           <div className="card w-1/2 bg-primary text-primary-content">
             <div className="card-body">
               <h2 className="card-title text-center">Check out our Github</h2>
-              <p>
+              <p className="font-oxygen">
                 Test test. Test test. Test test. Test test. Test test. Test
                 test. Test test. Test test. Test test. Test test. Test test.
                 Test test. Test test. Test test. Test test. Test test. Test

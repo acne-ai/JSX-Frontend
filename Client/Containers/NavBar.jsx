@@ -10,7 +10,7 @@ const NavBar = () => {
 
 
   return (
-    <div className="backdrop-blur-sm bg-gradient-to-r from-violet-500 to-fuchsia-500 rounded-2xl navbar px-4">
+    <div className="backdrop-blur-sm bg-gradient-to-r from-violet-500 to-fuchsia-500 rounded-2xl navbar px-8 mx-4 bg-opacity-0.5">
       <div className="navbar-start">
         <a className="btn btn-ghost text-2xl ">ACNE-AI</a>
       </div>
@@ -18,23 +18,23 @@ const NavBar = () => {
       {/* moving text for news */}
       {/* <div className="navbar-center animate-infinite-scroll">Moving Words.</div> */}
 
-      <div className="navbar-end">
+      <div className="navbar-end mx-4">
         <div className="flex justify-center space-x-4">
           <button
-            className="btn btn-secondary backdrop-blur-xl"
+            className="btn btn-secondary backdrop-blur-xl rounded-full bg-opacity-0.75"
             onClick={() => navigate("/")}
           >
             Home
           </button>{" "}
           {/* dont think backdrop-blur-xl is doing anything*/}
           <button
-            className="btn btn-secondary backdrop-blur-xl"
+            className="btn btn-secondary backdrop-blur-xl rounded-full bg-opacity-0.75"
             onClick={() => navigate("/about")}
           >
             About
           </button>
           <button
-            className="btn btn-secondary backdrop-blur-xl"
+            className="btn btn-secondary backdrop-blur-xl rounded-full bg-opacity-0.75"
             onClick={() => navigate("/tool")}
           >
             Tool
